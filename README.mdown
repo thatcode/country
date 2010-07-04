@@ -49,6 +49,11 @@ Available methods:
 Provides ability to output flag images if given valid iso or iso3 code.
 Provides select boxes for countries or continents.
 
+### Usage
+
+In your controller:
+    var $helpers = array('COuntry.Country');
+
 Available methods:
     flag($code, $options = array())
         $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
@@ -70,6 +75,11 @@ Also, all the model methods are valid.
 ## Behaviours
 
 Provides methods to validate country code fields, and postal codes, based on either a fixed country or a different form field for country.
+
+### Usage
+
+In your model:
+    var $actsAs = array('COuntry.Country');
 
 Available validation methods for use in $model->validate array:
     countryValidISO2

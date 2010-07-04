@@ -19,6 +19,8 @@ but there are a lot more.
 
 Provides ability to output flag images if given valid iso or iso3 code.
 
+Provides select boxes for countries or continents.
+
 ### Behaviours
 
 Provides methods to validate country code fields, and postal codes, based on either a fixed country or a different form field for country.

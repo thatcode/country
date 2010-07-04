@@ -89,4 +89,4 @@ countryValidPostalCode takes a single argument - i.e
     iso3
     numeric
     fips
-`value` can either be a code of the required type, in which case the settings for that country will be used, OR a field name, in which case the current value of that field will be used as the country.
+`'value'` can either be a code of the required type, in which case the settings for that country will be used, OR a field name, in which case the current value of that field will be used as the country.

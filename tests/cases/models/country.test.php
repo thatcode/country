@@ -23,15 +23,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('GB');
-        $expected = 'GB';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('gbr');
-        $expected = 'GB';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('GBR');
-        $expected = 'GB';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('us');
@@ -39,15 +36,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('US');
-        $expected = 'US';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('usa');
-        $expected = 'US';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('USA');
-        $expected = 'US';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('20');
@@ -55,7 +49,6 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2(20);
-        $expected = 'AD';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('ft');
@@ -63,7 +56,6 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO2('cetcr');
-        $expected = '00';
         $this->assertEqual($result, $expected);
 
     }
@@ -78,15 +70,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('GB');
-        $expected = 'GBR';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('gbr');
-        $expected = 'GBR';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('GBR');
-        $expected = 'GBR';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('us');
@@ -94,15 +83,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('US');
-        $expected = 'USA';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('usa');
-        $expected = 'USA';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('USA');
-        $expected = 'USA';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('20');
@@ -110,7 +96,6 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3(20);
-        $expected = 'AND';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('ft');
@@ -118,7 +103,53 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->findISO3('cetcr');
-        $expected = '000';
+        $this->assertEqual($result, $expected);
+
+    }
+
+/**
+ * testGetIsoNumFromCode
+ */
+    function testGetIsoNumFromCode() {
+        
+        $result = $this->Model->findISONum('gb');
+        $expected = 826;
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('GB');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('gbr');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('GBR');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('us');
+        $expected = 840;
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('US');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('usa');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('USA');
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('20');
+        $expected = 20;
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum(20);
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('ft');
+        $expected = 0;
+        $this->assertEqual($result, $expected);
+
+        $result = $this->Model->findISONum('cetcr');
         $this->assertEqual($result, $expected);
 
     }
@@ -133,15 +164,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('GB');
-        $expected = 'United Kingdom';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('gbr');
-        $expected = 'United Kingdom';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('GBR');
-        $expected = 'United Kingdom';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('us');
@@ -149,15 +177,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('US');
-        $expected = 'United States';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('usa');
-        $expected = 'United States';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('USA');
-        $expected = 'United States';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName('20');
@@ -165,7 +190,6 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->countryName(20);
-        $expected = 'Andorra';
         $this->assertEqual($result, $expected);
 
     }
@@ -180,15 +204,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('GB');
-        $expected = 'Europe';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('gbr');
-        $expected = 'Europe';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('GBR');
-        $expected = 'Europe';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('us');
@@ -196,15 +217,12 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('US');
-        $expected = 'North America';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('usa');
-        $expected = 'North America';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('USA');
-        $expected = 'North America';
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName('20');
@@ -212,7 +230,6 @@ class CountryModelTestCase extends CakeTestCase {
         $this->assertEqual($result, $expected);
 
         $result = $this->Model->continentName(20);
-        $expected = 'Europe';
         $this->assertEqual($result, $expected);
 
     }

@@ -4807,6 +4807,46 @@ class Country extends CountryAppModel {
         return '000';
     }
 
+    function findISONum($code) {
+        $code = strtoupper($code);
+        $iso_num = $this->find('first', array(
+            'conditions' => array(
+                'Country.iso3' => $code
+            ),
+            'fields' => array(
+                'Country.iso_numeric'
+            )
+        ));
+        if ($iso_num !== false) {
+            return $iso_num['Country']['iso_numeric'];
+        }
+        $iso_num = $this->find('first', array(
+            'conditions' => array(
+                'Country.iso' => $code
+            ),
+            'fields' => array(
+                'Country.iso_numeric'
+            )
+        ));
+        if ($iso_num !== false) {
+            return $iso_num['Country']['iso_numeric'];
+        }
+        if (is_numeric($code)) {
+            $iso_num = $this->find('first', array(
+                'conditions' => array(
+                    'Country.iso_numeric' => (int)$code
+                ),
+                'fields' => array(
+                    'Country.iso_numeric'
+                )
+            ));
+            if ($iso_num !== false) {
+                return $iso_num['Country']['iso_numeric'];
+            }
+        }
+        return 0;
+    }
+
     function countryName($code) {
         $iso2 = $this->findISO2($code);
         $data = $this->find('first', array(

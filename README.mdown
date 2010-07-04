@@ -1,0 +1,24 @@
+## Country Plugin
+
+This plugin provides useful functions/data when dealing with countries.
+
+### Dependencies
+
+This uses ArraySource extensively. At the time of writing, the core ArraySource does not provide all functionality required, please use [http://github.com/thatcode/datasources](http://github.com/thatcode/datasources) instead. When some tickets are resolved, I am hopeful that this will revert to the core Datasources plugin ([http://github.com/cakephp/datasources](http://github.com/cakephp/datasources)).
+
+### Models
+
+Provides information about Countries. Main fields are:
+    ISO alpha-2 Code
+    ISO alpha-3 Code
+    ISO numeric Code
+    FIPS Code
+but there are a lot more.
+
+### Helpers
+
+Provides ability to output flag images if given valid iso or iso3 code.
+
+### Behaviours
+
+Provides methods to validate country code fields, and postal codes, based on either a fixed country or a different form field for country.

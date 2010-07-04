@@ -1,26 +1,92 @@
-## Country Plugin
+# Country Plugin
 
 This plugin provides useful functions/data when dealing with countries.
 
-### Dependencies
+## Dependencies
 
-This uses ArraySource extensively. At the time of writing, the core ArraySource does not provide all functionality required, please use [http://github.com/thatcode/datasources](http://github.com/thatcode/datasources) instead. When some tickets are resolved, I am hopeful that this will revert to the core Datasources plugin ([http://github.com/cakephp/datasources](http://github.com/cakephp/datasources)).
+This uses ArraySource extensively. At the time of writing, the core ArraySource does not provide all functionality required, please use <http://github.com/thatcode/datasources> instead. When some tickets are resolved, I am hopeful that this will revert to the core Datasources plugin at <http://github.com/cakephp/datasources>.
 
-### Models
+## Models
 
 Provides information about Countries. Main fields are:
     ISO alpha-2 Code
     ISO alpha-3 Code
     ISO numeric Code
     FIPS Code
-but there are a lot more.
+but there are a lot more. Also provides information about neighbouring countries and country languages.
 
-### Helpers
+### Usage
+
+In your controller:
+    var $uses = array('Country.Country');
+
+Anywhere else:
+    $Country = ClassRegistry::init('Country.Country');
+
+Available methods:
+    findISO2($code)
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        @return - valid ISO alpha-2 code
+
+    findISO3($code)
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        @return - valid ISO alpha-3 code
+
+    findISONum($code)
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        @return - valid ISO numeric code
+
+    countryName($code)
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        @return - Country Name
+
+    continentName($code)
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        @return - Continent Name
+
+## Helpers
 
 Provides ability to output flag images if given valid iso or iso3 code.
-
 Provides select boxes for countries or continents.
 
-### Behaviours
+Available methods:
+    flag($code, $options = array())
+        $code - valid ISO alpha-2, ISO alpha-3 or ISO numeric Code
+        $options - htmlOptions, same as for HtmlHelper::image method
+        @return - HTML image tag for flag of the relevant country.
+
+    countrySelect($name, $options = array()
+        $name - field name
+        $options - FormHelper::input options element.
+        @return - HTML select box with selected countries.
+
+    continentSelect($name, $options = array()
+        $name - field name
+        $options - FormHelper::input options element.
+        @return - HTML select box with selected continents.
+
+Also, all the model methods are valid.
+
+## Behaviours
 
 Provides methods to validate country code fields, and postal codes, based on either a fixed country or a different form field for country.
+
+Available validation methods for use in $model->validate array:
+    countryValidISO2
+    countryValidISO3
+    countryValidISONum
+    countryValidPostalCode
+
+More on countryValidPostalCode:
+countryValidPostalCode takes a single argument - i.e
+    var $validate = array(
+        'postal_code' => array(
+            'rule' => array('countryValidPostalCode', array('type' => 'value'))
+        )
+    );
+`'type'` can be one of:
+    iso
+    iso3
+    numeric
+    fips
+`value` can either be a code of the required type, in which case the settings for that country will be used, OR a field name, in which case the current value of that field will be used as the country.

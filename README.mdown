@@ -6,6 +6,12 @@ This plugin provides useful functions/data when dealing with countries.
 
 This uses ArraySource extensively. At the time of writing, the core ArraySource does not provide all functionality required, please use <http://github.com/thatcode/datasources> instead. When some tickets are resolved, I am hopeful that this will revert to the core Datasources plugin at <http://github.com/cakephp/datasources>.
 
+Due to this (and plugin DATABASE_CONFIG objects not being supported) the lines:
+    var $country_array(
+        'datasource' => 'Datasources.ArraySource'
+    );
+must be added to your app/core/database.php file.
+
 ## Models
 
 Provides information about Countries. Main fields are:
